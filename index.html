@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h5>COUNTDOWN TIMER</h5>
+    <div class="timer">
+        <div class="sub-timer">
+            <h1 id="days">00</h1>
+            <p>Days</p>
+        </div>
+        <div class="sub-timer">
+            <h1 id="hours">00</h1>
+            <p>Hours</p>
+        </div>
+        <div class="sub-timer">
+            <h1 id="mins">00</h1>
+            <p>Mins</p>
+        </div>
+        <div class="sub-timer">
+            <h1 id="secs">00</h1>
+            <p>Secs</p>
+        </div>
+    
+    </div>
+
+     <script>
+        
+var future = new Date("Mar 7, 2024 11:30:00").getTime();
+function timer() {
+    var current = new Date().getTime();
+    var remaining = Math.floor((future - current) / 1000);
+
+    var days = Math.floor(remaining / (3600 * 24));
+    var hours = Math.floor((remaining % (3600 * 24))/3600);
+    var mins = Math.floor((remaining % 3600)/60);
+    var secs = Math.floor(remaining % 60);
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("mins").innerHTML = mins;
+    document.getElementById("secs").innerHTML = secs;
+
+}
+
+setInterval(timer, 1000);
+     </script>
+
+</body>
+</html>
